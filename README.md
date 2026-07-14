@@ -1,24 +1,16 @@
-# Expedition Guides
-
-Digitální cestovní knihovna pro aktivní výpravy.
-
-## První verze
-- domovská stránka série
-- Rome Expedition
-- kapitola 1: Vítej v Římě
-- responzivní mobilní design
-- základ PWA/offline režimu
-- tisk/PDF z prohlížeče
-
-## GitHub Pages
-1. Nahraj obsah tohoto balíčku do kořene repozitáře.
-2. Otevři **Settings → Pages**.
-3. V části **Build and deployment** vyber **Deploy from a branch**.
-4. Branch: `main`, folder: `/ (root)`.
-5. Ulož. Web bude dostupný na `https://housteff-sudo.github.io/expedition-guides/`.
-
-## Struktura
-- `index.html` – domovská stránka série
-- `rome/index.html` – hlavní stránka Rome Expedition
-- `rome/chapter-01/index.html` – první kapitola
-- `assets/` – vzhled, skripty a ikony
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout title="Book of Expedition">
+<main class="article-wrap"><article class="article">
+<div class="eyebrow">Book of Expedition</div><h1>THE DNA OF THE PROJECT</h1>
+<p class="lead">Tato část popisuje, proč Expedition existuje, jak mluví a jaké principy bude držet u každého budoucího města.</p>
+<div class="book-list">
+<a class="book-link" href={`${base}book/manifesto/`}><span>00 · Manifesto</span><span>Read →</span></a>
+<a class="book-link" href={`${base}book/vision/`}><span>01 · Vision</span><span>Read →</span></a>
+<a class="book-link" href={`${base}book/voice/`}><span>02 · Voice</span><span>Read →</span></a>
+<a class="book-link" href={`${base}book/design-system/`}><span>03 · Design System</span><span>Read →</span></a>
+</div>
+</article></main>
+</BaseLayout>
