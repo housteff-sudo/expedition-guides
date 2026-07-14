@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import MobileBar from '../../../components/MobileBar.astro';
+import DayQuickMenu from '../../../components/DayQuickMenu.astro';
+import { day1Places } from '../../../data/rome/day1';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout title="Day I — Empire | Rome Expedition">
+<main>
+  <section class="day-hero">
+    <div class="container">
+      <div class="eyebrow">Rome · Day I · Thursday 27 August</div>
+      <h1>EMPIRE</h1>
+      <p class="lead">Od baziliky u hotelu přes Koloseum, Forum a Palatin až k noční Trevi. Rychlé menu níže slouží jako hlavní ovládání dne.</p>
+      <div class="stats">
+        <div class="stat"><strong>20–22 km</strong>estimated walking</div>
+        <div class="stat"><strong>8 stops</strong>day itinerary</div>
+        <div class="stat"><strong>15:00</strong>Colosseum entry</div>
+        <div class="stat"><strong>21:45</strong>Trevi finale</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">Quick Expedition Menu</div>
+        <h2>Co vás dnes čeká</h2>
+        <p class="lead">Kliknutím otevřeš rychlou kartu místa. Na kartě máš mapu, praktické tipy a tlačítko pro delší historii.</p>
+      </div>
+      <DayQuickMenu places={day1Places} base={base} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="quote">The first day is not a list of ruins. It is the story of how Rome learned to turn architecture into power.</div>
+    </div>
+  </section>
+</main>
+<MobileBar items={[
+  { href: `${base}rome/`, icon: '←', label: 'Rome' },
+  { href: '#top', icon: '↑', label: 'Top' },
+  { href: `${base}rome/day-1/colosseum/`, icon: '⬡', label: 'Colosseum' }
+]} />
+</BaseLayout>

@@ -1,0 +1,47 @@
+---
+import ScoreBars from './ScoreBars.astro';
+const { place, base } = Astro.props;
+---
+<section class="place-quick-card">
+  <div class="place-card-head">
+    <div>
+      <div class="eyebrow">Expedition Card · Day I</div>
+      <h1><span class="place-symbol">{place.icon}</span>{place.title}</h1>
+      <p class="lead">{place.subtitle}</p>
+    </div>
+    <span class="place-order">{String(place.order).padStart(2, '0')}</span>
+  </div>
+
+  <div class="place-meta-grid">
+    <div><b>Příchod</b><span>{place.arrival}</span></div>
+    <div><b>Návštěva</b><span>{place.visitTime}</span></div>
+    <div><b>Přesun</b><span>{place.walkingFromPrevious} · {place.distanceFromPrevious}</span></div>
+    <div><b>Vstup</b><span>{place.ticket}</span></div>
+  </div>
+
+  <div class="mode-tabs">
+    <a class="mode-tab active" href="#quick-read">Quick Read</a>
+    <a class="mode-tab" href="#deep-dive">Historie & zajímavosti</a>
+  </div>
+
+  <div id="quick-read" class="quick-read">
+    {place.quickRead.map((paragraph) => <p>{paragraph}</p>)}
+  </div>
+
+  <div class="place-actions">
+    <a class="button primary" href={place.mapUrl} target="_blank" rel="noreferrer">Otevřít pěší trasu</a>
+    <a class="button" href="#deep-dive">Přečíst historii</a>
+    <a class="button" href={`${base}rome/day-1/`}>Všechny zastávky</a>
+  </div>
+
+  <div class="quick-columns">
+    <div class="mini-panel">
+      <h3>Co nepřehlédnout</h3>
+      <ul>{place.doNotMiss.map((item) => <li>{item}</li>)}</ul>
+    </div>
+    <div class="mini-panel">
+      <h3>Expedition Score</h3>
+      <ScoreBars scores={place.scores} />
+    </div>
+  </div>
+</section>

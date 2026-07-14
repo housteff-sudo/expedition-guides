@@ -1,0 +1,20 @@
+---
+const { scores } = Astro.props;
+const labels = {
+  history: 'Historie',
+  architecture: 'Architektura',
+  atmosphere: 'Atmosféra',
+  photography: 'Fotografie',
+  crowds: 'Davy'
+};
+---
+<div class="score-grid">
+  {Object.entries(scores).map(([key, value]) => (
+    <div class="score-row">
+      <span>{labels[key]}</span>
+      <span class="score-dots" aria-label={`${value} z 5`}>
+        {Array.from({ length: 5 }, (_, i) => <i class={i < value ? 'active' : ''}></i>)}
+      </span>
+    </div>
+  ))}
+</div>

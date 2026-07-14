@@ -1,14 +1,39 @@
-{
-  "name": "expedition-travel-books",
-  "version": "0.3.1",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
-  },
-  "dependencies": {
-    "astro": "^5.12.0"
-  }
-}
+export type PlaceScore = {
+  history: number;
+  architecture: number;
+  atmosphere: number;
+  photography: number;
+  crowds: number;
+};
+
+export type RomePlace = {
+  slug: string;
+  order: number;
+  title: string;
+  subtitle: string;
+  icon: string;
+  arrival: string;
+  visitTime: string;
+  walkingFromPrevious: string;
+  distanceFromPrevious: string;
+  nextStop?: string;
+  nextStopSlug?: string;
+  ticket: string;
+  reservation: string;
+  location: string;
+  mapUrl: string;
+  quickRead: string[];
+  doNotMiss: string[];
+  photoTip: string;
+  challenge: string;
+  practical: string[];
+  scores: PlaceScore;
+  history: {
+    opening: string;
+    sections: Array<{
+      heading: string;
+      paragraphs: string[];
+    }>;
+    facts: string[];
+  };
+};

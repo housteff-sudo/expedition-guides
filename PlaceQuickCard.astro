@@ -1,0 +1,13 @@
+---
+const { places, base } = Astro.props;
+---
+<nav class="day-quick-menu" aria-label="Zastávky Dne 1">
+  {places.map((place) => (
+    <a class="quick-stop" href={`${base}rome/day-1/${place.slug}/`}>
+      <span class="quick-time">{place.arrival}</span>
+      <span class="quick-icon">{place.icon}</span>
+      <span class="quick-title">{place.title}</span>
+      <span class="quick-arrow">→</span>
+    </a>
+  ))}
+</nav>

@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ExpeditionCard from '../../components/ExpeditionCard.astro';
+import MobileBar from '../../components/MobileBar.astro';
+import { rome } from '../../data/site';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout title="Rome Expedition — Volume I">
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">{rome.volume} · Rome</div>
+        <h1>{rome.subtitle.toUpperCase()}</h1>
+        <p class="lead">Tři dny, tři historické vrstvy a město, které se nedá pochopit z jednoho náměstí ani z jedné fotografie.</p>
+        <div class="actions">
+          <a class="button primary" href={`${base}rome/day-1/`}>Open Day I — Empire</a>
+          <a class="button" href={`${base}book/manifesto/`}>Why Expedition exists</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>3</strong>days</div>
+          <div class="stat"><strong>{rome.distance}</strong>walking</div>
+          <div class="stat"><strong>3 layers</strong>empire, church, life</div>
+          <div class="stat"><strong>{rome.baseCamp}</strong>base camp</div>
+        </div>
+      </div>
+      <div class="cover">
+        <div class="cover-copy"><small>Expedition · {rome.volume}</small><strong>{rome.title}</strong><span>{rome.subtitle}</span></div>
+        <div class="cover-stamp"><b>DAY I AVAILABLE</b><br />Empire · Quick Menu</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="chapters">
+    <div class="container">
+      <div class="section-heading"><div class="eyebrow">The three chapters</div><h2>One city. Three different stories.</h2></div>
+      <div class="grid">
+        <ExpeditionCard number="I" title="Empire" text="Santa Maria Maggiore, Monti, San Clemente, Colosseum, Forum Romanum, Palatine, Capitoline and night Trevi." status="Available" href={`${base}rome/day-1/`} />
+        <ExpeditionCard number="II" title="The Vatican" text="Vatican Museums, Sistine Chapel, St Peter’s Basilica, Pantheon, Gianicolo and Trastevere." status="Planned" />
+        <ExpeditionCard number="III" title="Living Rome" text="Pincio, Jewish Ghetto, Aventine, Circus Maximus, Baths of Caracalla and Lateran." status="Planned" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section"><div class="container"><div class="quote">Rome is not a city built beside its history. It is built directly on top of it.</div></div></section>
+</main>
+<MobileBar items={[
+  { href: base, icon: '←', label: 'Library' },
+  { href: `${base}rome/day-1/`, icon: 'I', label: 'Day I' },
+  { href: `${base}book/`, icon: '▤', label: 'Book' }
+]} />
+</BaseLayout>
