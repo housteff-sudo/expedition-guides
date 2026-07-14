@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ExpeditionCard from '../components/ExpeditionCard.astro';
+import MobileBar from '../components/MobileBar.astro';
+import { site, rome } from '../data/site';
+
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout title="EXPEDITION — Travel Books">
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Digital Travel Books</div>
+        <h1 class="hero-title">See less.<span>Experience more.</span></h1>
+        <p class="lead">
+          Expedition není cestovní blog. Je to série digitálních knih pro lidi,
+          kteří chtějí město projít, pochopit a skutečně si ho zapamatovat.
+        </p>
+        <div class="actions">
+          <a class="button primary" href={`${base}rome/`}>Begin Rome Expedition</a>
+          <a class="button" href={`${base}book/manifesto/`}>Read the Manifesto</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>{rome.volume}</strong>Rome</div>
+          <div class="stat"><strong>3 days</strong>{rome.dates}</div>
+          <div class="stat"><strong>{rome.distance}</strong>active journey</div>
+          <div class="stat"><strong>v{site.release.version}</strong>{site.release.name}</div>
+        </div>
+      </div>
+      <div class="cover">
+        <div class="cover-copy">
+          <small>{rome.volume}</small>
+          <strong>{rome.title}</strong>
+          <span>{rome.subtitle}</span>
+        </div>
+        <div class="cover-stamp"><b>{rome.dates}</b><br />Filip's Expedition</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">What Expedition believes</div>
+        <h2>Travel should leave you with more than photographs.</h2>
+      </div>
+      <div class="grid">
+        <ExpeditionCard number="01" title="Story before facts" text="Fakta dávají přesnost. Příběhy dávají místu význam a zůstávají v paměti." />
+        <ExpeditionCard number="02" title="Walk the city" text="Město se nejlépe čte v pohybu. Trasy spojují místa tak, aby společně vyprávěla jeden příběh." />
+        <ExpeditionCard number="03" title="Quality before quantity" text="Raději patnáct míst pochopených do hloubky než čtyřicet rychle odškrtnutých bodů." />
+      </div>
+    </div>
+  </section>
+
+  <section class="section"><div class="container">
+    <div class="quote">“We do not want you to visit more places. We want every place to mean more.”</div>
+  </div></section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="section-heading"><div class="eyebrow">Release roadmap</div><h2>Volume I is built one meaningful release at a time.</h2></div>
+      <div class="roadmap">
+        <div class="roadmap-row"><strong>v0.3.1 Genesis</strong><span>Clean production foundation, identity, Rome cover and public product principles.</span></div>
+        <div class="roadmap-row"><strong>v0.4 Empire</strong><span>Complete Day 1 and the first modular place files, beginning with the Colosseum.</span></div>
+        <div class="roadmap-row"><strong>v0.5 Vatican</strong><span>Vatican Museums, Sistine Chapel, St Peter's Basilica and baroque Rome.</span></div>
+        <div class="roadmap-row"><strong>v0.6 Living Rome</strong><span>Final day, viewpoints, neighbourhoods and Expedition Mode.</span></div>
+        <div class="roadmap-row"><strong>v1.0 Rome</strong><span>The complete first volume.</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+<MobileBar items={[
+  { href: base, icon: '⌂', label: 'Home' },
+  { href: `${base}rome/`, icon: '◉', label: 'Rome' },
+  { href: `${base}book/`, icon: '▤', label: 'Book' }
+]} />
+</BaseLayout>

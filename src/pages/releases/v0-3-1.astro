@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout title="Release v0.3.1 — Genesis">
+<main class="article-wrap"><article class="article">
+<span class="release-badge">Release v0.3.1</span>
+<div class="eyebrow" style="margin-top:20px">Codename · Genesis</div>
+<h1>A CLEAN FOUNDATION.</h1>
+<h2>New</h2><p>Production landing page, modular site data, Rome Volume I, Book of Expedition and reusable components.</p>
+<h2>Fixed</h2><p>Deployment is now intentionally separated into one manually created GitHub Actions workflow, avoiding hidden-folder upload problems.</p>
+<h2>Next release</h2><p>v0.4.0 — Empire: complete Day 1 and the first full place module, Colosseum.</p>
+<div class="actions"><a class="button primary" href={`${base}rome/`}>Open Rome</a></div>
+</article></main>
+</BaseLayout>

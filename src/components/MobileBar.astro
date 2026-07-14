@@ -1,0 +1,6 @@
+---
+const { items } = Astro.props;
+---
+<nav class="mobile-bar" aria-label="Mobilní navigace">
+  {items.map((item) => <a href={item.href}>{item.icon}<br />{item.label}</a>)}
+</nav>

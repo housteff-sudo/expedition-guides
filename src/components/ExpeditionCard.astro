@@ -1,0 +1,10 @@
+---
+const { number, title, text, status, href } = Astro.props;
+---
+<article class="card">
+  <div class="number">{number}</div>
+  <h3>{title}</h3>
+  <p>{text}</p>
+  {status && <span class="status">{status}</span>}
+  {href && <div class="actions"><a class="button" href={href}>Open →</a></div>}
+</article>
